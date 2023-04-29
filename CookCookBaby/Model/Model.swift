@@ -47,6 +47,6 @@ extension ingredient {
     static let onion = ingredient(
         name: "양파",
         imageKey: "onion",
-        soundKey: "nionSound"
+        soundKey: "onionSound"
     )
 }
