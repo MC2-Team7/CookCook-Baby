@@ -29,5 +29,7 @@ extension ingredient {
         name: "생선",
         imageKey: "fish"
     )
-    
+    static let broccoli = ingredient(name: "브로콜리", imageKey: "broccoli")
+    static let cabbage = ingredient(name: "양배추", imageKey: "cabbage")
+    static let onion = ingredient(name: "양파", imageKey: "onion")
 }

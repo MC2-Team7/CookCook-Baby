@@ -26,6 +26,7 @@ struct ChoppingView: View {
                                 .onTapGesture {
                                     index = true
                                     ingredientName = ingredient.imageKey
+                                    
                                 }
                                 
                         }
