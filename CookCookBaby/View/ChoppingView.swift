@@ -12,27 +12,41 @@ struct ChoppingView: View {
     @State private var draggedOffset = CGSize.zero
     @State private var accumulatedOffset = CGSize.zero
     @State private var index = false
+    @State private var ingredientName = ""
     var body: some View {
-        VStack{
-            ScrollView(.horizontal) {
-                HStack{
-                    ForEach(viewModel.ingredients){ fruit in
-                        Text(fruit.name)
-                            .onTapGesture {
-                                index = true
-                            }
-                            
+        GeometryReader { geo in
+            VStack{
+                ScrollView(.horizontal) {
+                    HStack{
+                        ForEach(viewModel.ingredients){ ingredient in
+                            Image(ingredient.imageKey)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/10)
+                                .onTapGesture {
+                                    index = true
+                                    ingredientName = ingredient.imageKey
+                                }
+                                
+                        }
+                        
                     }
-                }
-                
-            }
-            if index {
-                Text("테스트")
-                    .offset(draggedOffset)
-                    .gesture(drag)
                     
+                }
+                Spacer()
+                if index {
+                    Image(ingredientName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geo.size.width * 2/3)
+                        .offset(draggedOffset)
+                        .gesture(drag)
+                        
+                }
+                Spacer()
             }
         }
+        
     }
     var drag : some Gesture {
         DragGesture()
