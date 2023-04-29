@@ -13,6 +13,9 @@ struct ChoppingView: View {
     @State private var accumulatedOffset = CGSize.zero
     @State private var index = false
     @State private var ingredientName = ""
+    
+    var soundSetting = SoundSetting()
+    
     var body: some View {
         GeometryReader { geo in
             VStack{
@@ -26,7 +29,7 @@ struct ChoppingView: View {
                                 .onTapGesture {
                                     index = true
                                     ingredientName = ingredient.imageKey
-                                    
+                                    SoundSetting.instance.playSound(sound: ingredient.soundKey)
                                 }
                                 
                         }
