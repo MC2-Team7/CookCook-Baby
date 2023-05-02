@@ -53,6 +53,8 @@ struct ChoppingView: View {
                         .gesture(drag)
                         .onTapGesture {
                             index = 2
+                            draggedOffset[1] = draggedOffset[0]
+                            accumulatedOffset[1] = accumulatedOffset[0]
                         }
                 case 2 :
                     HStack{
@@ -61,6 +63,8 @@ struct ChoppingView: View {
                             .gesture(drag)
                             .onTapGesture {
                                 index = 3
+                                draggedOffset[2] = draggedOffset[0]
+                                accumulatedOffset[2] = accumulatedOffset[0]
                             }
                         
                         Image(ingredientName + "Slice1")
@@ -117,10 +121,11 @@ struct ChoppingView: View {
         
     }
     var drag1 : some Gesture {
+        
         DragGesture()
             .onChanged{ gesture in
                 
-                draggedOffset[1] = accumulatedOffset[1] + gesture.translation
+                draggedOffset[1] = accumulatedOffset[1] +  gesture.translation
                 
                 //draggedOffset = accumulatedOffset + gesture.translation
             }
