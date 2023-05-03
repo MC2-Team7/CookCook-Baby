@@ -43,6 +43,8 @@ struct ChoppingView: View {
                             }
                         }
                     }
+                    .background(.opacity(0.15))
+                    .cornerRadius(20)
       
                     Button("알림창") {
                         isShowAlert = true
@@ -51,12 +53,11 @@ struct ChoppingView: View {
                         Alert(title: Text("부모한테 보낼 String :"),
                               message: Text("\(ingredientName)"))
                     })
-                    .disabled(index > 1 ? false : true)
-                    
+                    .disabled(index > 4 ? false : true)
                 }
                 .padding(.leading)
                 .frame(width: geo.size.width/5*4)
-                .background(.opacity(0.15))
+                
                 Spacer()
                 ZStack {
                     Image("CuttingBoard")

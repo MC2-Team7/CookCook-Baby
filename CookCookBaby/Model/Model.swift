@@ -40,6 +40,11 @@ extension ingredient {
         imageKey: "tomato",
         soundKey: "tomatoSound"
     )
+    static let scallion = ingredient(
+        name: "대파",
+        imageKey: "scallion",
+        soundKey: "scallionSound"
+    )
     static let carrot = ingredient(
         name: "당근",
         imageKey : "carrot3D",
@@ -50,6 +55,11 @@ extension ingredient {
         name: "생선",
         imageKey: "fish",
         soundKey: "fishSound"
+    )
+    static let mushroom = ingredient(
+        name: "버섯",
+        imageKey: "mushroom",
+        soundKey: "mushroomSound"
     )
     static let broccoli = ingredient(
         name: "브로콜리",
