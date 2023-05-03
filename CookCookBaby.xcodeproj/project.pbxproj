@@ -12,6 +12,7 @@
 		4040F62A29FA67E400C3B35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4040F62929FA67E400C3B35D /* Assets.xcassets */; };
 		4040F62D29FA67E400C3B35D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4040F62C29FA67E400C3B35D /* Preview Assets.xcassets */; };
 		4040F63429FA6B7900C3B35D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4040F63329FA6B7900C3B35D /* .gitignore */; };
+		42F9E5482A012DC8008FCF26 /* choppingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */; };
 		6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A2A29FD06E7006830A6 /* Model.swift */; };
 		6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */; };
 		6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */; };
@@ -31,6 +32,7 @@
 		4040F62929FA67E400C3B35D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4040F62C29FA67E400C3B35D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4040F63329FA6B7900C3B35D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = choppingSound.mp3; sourceTree = "<group>"; };
 		6FCE0A2A29FD06E7006830A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoppingView.swift; sourceTree = "<group>"; };
 		6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoppingViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				6FCE0A3629FD209F006830A6 /* fishSound.mp3 */,
 				6FCE0A3929FD209F006830A6 /* onionSound.mp3 */,
 				6FCE0A3B29FD20A0006830A6 /* tomatoSound.mp3 */,
+				42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				6FCE0A3E29FD20A0006830A6 /* cabbageSound.mp3 in Resources */,
 				6FCE0A3C29FD20A0006830A6 /* fishSound.mp3 in Resources */,
 				6FCE0A3F29FD20A0006830A6 /* onionSound.mp3 in Resources */,
+				42F9E5482A012DC8008FCF26 /* choppingSound.mp3 in Resources */,
 				4040F62A29FA67E400C3B35D /* Assets.xcassets in Resources */,
 				6FCE0A4129FD20A0006830A6 /* tomatoSound.mp3 in Resources */,
 				6FCE0A3D29FD20A0006830A6 /* broccoliSound.mp3 in Resources */,
@@ -279,7 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -333,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -351,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = 37UUYN2CGZ;
+				DEVELOPMENT_TEAM = HR74YJR7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -364,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBaby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greed.CookCookBaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -380,7 +384,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = 37UUYN2CGZ;
+				DEVELOPMENT_TEAM = HR74YJR7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -393,7 +397,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBaby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greed.CookCookBaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
