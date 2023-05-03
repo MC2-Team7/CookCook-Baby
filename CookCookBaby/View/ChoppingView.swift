@@ -15,31 +15,44 @@ struct ChoppingView: View {
     @State private var ingredientName = ""
     var ratio : CGFloat = 5/12
     
+    // 부모 기기로 보내기 Alert용
+    @State private var isShowAlert: Bool = false
+    
     var soundSetting = SoundSetting()
     
     var body: some View {
         GeometryReader { geo in
             VStack{
-                ScrollView(.horizontal) {
-                    HStack{
-                        ForEach(viewModel.ingredients){ ingredient in
-                            Image(ingredient.imageKey)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width/10)
-                                .onTapGesture {
-                                    index = 1
-                                    ingredientName = ingredient.imageKey
-                                    SoundSetting.instance.playSound(sound: ingredient.soundKey)
-                                    for i in 0...4 {
-                                        draggedOffset[i] = CGSize.zero
-                                        accumulatedOffset[i] = CGSize.zero
+                HStack {
+                    ScrollView(.horizontal) {
+                        HStack{
+                            ForEach(viewModel.ingredients){ ingredient in
+                                Image(ingredient.imageKey)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width/10)
+                                    .onTapGesture {
+                                        index = 1
+                                        ingredientName = ingredient.imageKey
+                                        SoundSetting.instance.playSound(sound: ingredient.soundKey)
+                                        for i in 0...4 {
+                                            draggedOffset[i] = CGSize.zero
+                                            accumulatedOffset[i] = CGSize.zero
+                                        }
                                     }
-                                    
-                                }
+                            }
                         }
-                        
                     }
+      
+                    Button("알림창") {
+                        isShowAlert = true
+                    }
+                    .alert(isPresented: $isShowAlert, content: {
+                        Alert(title: Text("부모한테 보낼 String :"),
+                              message: Text("\(ingredientName)"))
+                    })
+                    .disabled(index > 1 ? false : true)
+                    
                 }
                 .padding(.leading)
                 .frame(width: geo.size.width/5*4)

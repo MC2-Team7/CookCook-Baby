@@ -12,4 +12,5 @@ class ChoppingViewModel : ObservableObject {
     init(ingredients : [ingredient]){
         self.ingredients = ingredients
     }
+    
 }
