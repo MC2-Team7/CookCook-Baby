@@ -12,8 +12,8 @@ struct ChoppingView: View {
     @Binding var showDetail: Bool
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
-    @State private var index : Int = 0
-    @State private var ingredientName = ""
+    @Binding var index : Int 
+    @Binding var ingredientName: String
     var ratio : CGFloat = 5/12
     
     // 부모 기기로 보내기 Alert용

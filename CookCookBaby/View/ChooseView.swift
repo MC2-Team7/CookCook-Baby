@@ -16,16 +16,10 @@ struct ChooseView: View {
             VStack{
                 HStack {
                     ForEach(viewModel.ingredients){ ingredient in
-                        ButtonSample(imageKey: ingredient.btnImageKey, geo: geo,showDetail: $showDetail)
+                        ButtonSample(imageKey: ingredient.btnImageKey, geo: geo,ingredientImageKey: ingredient.imageKey, showDetail: $showDetail, name: $name)
                     }
                 }
                 .padding(40)
-                HStack {
-                    ButtonSample(imageKey: "분홍버튼",geo: geo,showDetail: $showDetail)
-                    ButtonSample(imageKey: "민트버튼",geo: geo,showDetail: $showDetail)
-                    ButtonSample(imageKey: "보라버튼",geo: geo,showDetail: $showDetail)
-                    ButtonSample(imageKey: "분홍버튼",geo: geo,showDetail: $showDetail)
-                }
             }
         }
     }
@@ -34,9 +28,12 @@ struct ChooseView: View {
 struct ButtonSample: View {
     let imageKey: String
     let geo: GeometryProxy
+    let ingredientImageKey: String
     @Binding var showDetail: Bool
+    @Binding var name: String
     var body: some View {
         Button {
+            name = ingredientImageKey
             showDetail = true
         } label: {
             Image(imageKey)
