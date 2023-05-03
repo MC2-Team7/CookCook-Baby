@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB47F962A0106300034468E /* ChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB47F952A0106300034468E /* ChooseView.swift */; };
 		4040F62629FA67E200C3B35D /* CookCookBabyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */; };
 		4040F62829FA67E200C3B35D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040F62729FA67E200C3B35D /* ContentView.swift */; };
 		4040F62A29FA67E400C3B35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4040F62929FA67E400C3B35D /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AB47F952A0106300034468E /* ChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseView.swift; sourceTree = "<group>"; };
 		4040F62229FA67E200C3B35D /* CookCookBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookCookBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookCookBabyApp.swift; sourceTree = "<group>"; };
 		4040F62729FA67E200C3B35D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */,
+				1AB47F952A0106300034468E /* ChooseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */,
 				6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */,
+				1AB47F962A0106300034468E /* ChooseView.swift in Sources */,
 				6FCE0A3429FD1F57006830A6 /* SoundSetting.swift in Sources */,
 				4040F62829FA67E200C3B35D /* ContentView.swift in Sources */,
 				6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */,
