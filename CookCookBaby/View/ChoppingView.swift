@@ -13,6 +13,7 @@ struct ChoppingView: View {
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var index : Int = 0
     @State private var ingredientName = ""
+    var ratio : CGFloat = 5/12
     
     var soundSetting = SoundSetting()
     
@@ -57,7 +58,7 @@ struct ChoppingView: View {
                         //.frame(width: geo.size.width * 2/3)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: geo.size.height/4)
+                            .frame(height: geo.size.height*ratio)
                             .offset(draggedOffset[0])
                             .gesture(drag)
                             .onTapGesture {
@@ -72,7 +73,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice1.1")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[0])
                                 .gesture(drag)
                                 .onTapGesture {
@@ -85,7 +86,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice5")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[1])
                                 .gesture(drag1)
                             
@@ -95,7 +96,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice1.2")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[0])
                                 .gesture(drag)
                                 .onTapGesture {
@@ -107,7 +108,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice4")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[2])
                                 .gesture(drag2)
                                 .onTapGesture {
@@ -119,7 +120,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice5")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[1])
                                 .gesture(drag1)
                             
@@ -129,7 +130,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice1.3")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[0])
                                 .gesture(drag)
                                 .onTapGesture {
@@ -141,7 +142,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice3")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[3])
                                 .gesture(drag3)
                                 .onTapGesture {
@@ -153,7 +154,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice4")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[2])
                                 .gesture(drag2)
                                 .onTapGesture {
@@ -165,7 +166,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice5")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[1])
                                 .gesture(drag1)
                             
@@ -175,7 +176,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice1")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[0])
                                 .gesture(drag)
                                 .onTapGesture {
@@ -184,7 +185,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice2")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[4])
                                 .gesture(drag4)
                                 .onTapGesture {
@@ -193,7 +194,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice3")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[3])
                                 .gesture(drag3)
                                 .onTapGesture {
@@ -202,7 +203,7 @@ struct ChoppingView: View {
                             Image(ingredientName + "Slice4")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[2])
                                 .gesture(drag2)
                                 .onTapGesture {
@@ -210,7 +211,7 @@ struct ChoppingView: View {
                                 }
                             Image(ingredientName + "Slice5").resizable()
                                 .scaledToFit()
-                                .frame(height: geo.size.height/4)
+                                .frame(height: geo.size.height*ratio)
                                 .offset(draggedOffset[1])
                                 .gesture(drag1)
                                 .onTapGesture {
