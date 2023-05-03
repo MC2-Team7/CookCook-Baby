@@ -8,43 +8,45 @@
 import SwiftUI
 
 struct ChooseView: View {
+    @ObservedObject var viewModel : ChoppingViewModel
     var body: some View {
-        ScrollView(.horizontal) {
+        GeometryReader{ geo in
+            VStack{
                 HStack {
-                    ButtonSample(imageKey: "carrotButton")
-                    ButtonSample(imageKey: "fishButton")
-                    ButtonSample(imageKey: "대파버튼")
-                    ButtonSample(imageKey: "보라버튼")
-                    ButtonSample(imageKey: "민트버튼")
+                    ForEach(viewModel.ingredients){ ingredient in
+                        ButtonSample(imageKey: ingredient.btnImageKey, geo: geo)
+                    }
                 }
-                .padding(.vertical, 50)
+                .padding(40)
                 HStack {
-                    ButtonSample(imageKey: "분홍버튼")
-                    ButtonSample(imageKey: "민트버튼")
-                    ButtonSample(imageKey: "보라버튼")
-                    ButtonSample(imageKey: "분홍버튼")
-                    ButtonSample(imageKey: "민트버튼")
+                    ButtonSample(imageKey: "분홍버튼",geo: geo)
+                    ButtonSample(imageKey: "민트버튼",geo: geo)
+                    ButtonSample(imageKey: "보라버튼",geo: geo)
+                    ButtonSample(imageKey: "분홍버튼",geo: geo)
                 }
             }
         }
     }
+}
     
-    struct ButtonSample: View {
-        let imageKey: String
-        var body: some View {
-            Button {
-            } label: {
-                Image(imageKey)
-                    .resizable()
-                    .frame(width: 300, height: 300)
-                    .padding(.horizontal, 20)
-            }
+struct ButtonSample: View {
+    let imageKey: String
+    let geo: GeometryProxy
+    var body: some View {
+        Button {
+        } label: {
+            Image(imageKey)
+                .resizable()
+                .scaledToFit()
+                .frame(width: geo.size.width/5)
+                .padding(.horizontal, 20)
         }
     }
+}
 
 struct ChooseView_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseView()
+        ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.greenOnion,.onion]))
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
