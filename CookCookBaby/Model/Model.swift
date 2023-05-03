@@ -76,5 +76,5 @@ extension ingredient {
         
     )
     
-    static let greenOnion = ingredient(name: "대파", imageKey: "", soundKey: "",btnImageKey: "대파버튼")
+    static let greenOnion = ingredient(name: "대파", imageKey: "", soundKey: "",btnImageKey: "greenonionButton")
 }

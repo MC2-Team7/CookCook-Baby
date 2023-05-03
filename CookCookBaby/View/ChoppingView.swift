@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChoppingView: View {
     @ObservedObject var viewModel : ChoppingViewModel
+    @Binding var showDetail: Bool
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var index : Int = 0
@@ -329,11 +330,5 @@ struct ChoppingView: View {
 extension CGSize {
     static func + (lhs: Self, rhs: Self) -> Self {
         CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
-    }
-}
-
-struct ChoppingView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.tomato]))
     }
 }
