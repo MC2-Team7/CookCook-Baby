@@ -80,6 +80,8 @@ struct ChoppingView: View {
                                 draggedOffset[1] = draggedOffset[0]
                                 accumulatedOffset[1] = accumulatedOffset[0]
                                 SoundSetting.instance.playSound(sound: "choppingSound")
+                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                    impactHeavy.impactOccurred()
                                 
                             }
                     case 2 :
@@ -95,6 +97,8 @@ struct ChoppingView: View {
                                     draggedOffset[2] = draggedOffset[0]
                                     accumulatedOffset[2] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             
                             Image(ingredientName + "Slice5")
@@ -118,6 +122,8 @@ struct ChoppingView: View {
                                     draggedOffset[3] = draggedOffset[0]
                                     accumulatedOffset[3] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice4")
                                 .resizable()
@@ -130,6 +136,8 @@ struct ChoppingView: View {
                                     draggedOffset[3] = draggedOffset[0]
                                     accumulatedOffset[3] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice5")
                                 .resizable()
@@ -152,6 +160,8 @@ struct ChoppingView: View {
                                     draggedOffset[4] = draggedOffset[0]
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice3")
                                 .resizable()
@@ -164,6 +174,8 @@ struct ChoppingView: View {
                                     draggedOffset[4] = draggedOffset[0]
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice4")
                                 .resizable()
@@ -176,6 +188,8 @@ struct ChoppingView: View {
                                     draggedOffset[4] = draggedOffset[0]
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice5")
                                 .resizable()

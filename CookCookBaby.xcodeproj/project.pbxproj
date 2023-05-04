@@ -15,6 +15,7 @@
 		42F9E5482A012DC8008FCF26 /* choppingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */; };
 		42F9E5662A023E6F008FCF26 /* scallionSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */; };
 		42F9E5682A024F6D008FCF26 /* mushroomSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */; };
+		42F9E56A2A02914F008FCF26 /* HapticSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9E5692A02914F008FCF26 /* HapticSetting.swift */; };
 		6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A2A29FD06E7006830A6 /* Model.swift */; };
 		6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */; };
 		6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */; };
@@ -37,6 +38,7 @@
 		42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = choppingSound.mp3; sourceTree = "<group>"; };
 		42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scallionSound.mp3; sourceTree = "<group>"; };
 		42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mushroomSound.mp3; sourceTree = "<group>"; };
+		42F9E5692A02914F008FCF26 /* HapticSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticSetting.swift; sourceTree = "<group>"; };
 		6FCE0A2A29FD06E7006830A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoppingView.swift; sourceTree = "<group>"; };
 		6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoppingViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		6FCE0A3229FD1F3F006830A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				42F9E5692A02914F008FCF26 /* HapticSetting.swift */,
 				6FCE0A3329FD1F57006830A6 /* SoundSetting.swift */,
 			);
 			path = Utils;
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F9E56A2A02914F008FCF26 /* HapticSetting.swift in Sources */,
 				6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */,
 				6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */,
 				6FCE0A3429FD1F57006830A6 /* SoundSetting.swift in Sources */,
