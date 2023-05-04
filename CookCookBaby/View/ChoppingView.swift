@@ -44,6 +44,8 @@ struct ChoppingView: View {
                             }
                         }
                     }
+                    .background(.opacity(0.15))
+                    .cornerRadius(20)
       
                     Button("알림창") {
                         isShowAlert = true
@@ -52,12 +54,11 @@ struct ChoppingView: View {
                         Alert(title: Text("부모한테 보낼 String :"),
                               message: Text("\(ingredientName)"))
                     })
-                    .disabled(index > 1 ? false : true)
-                    
+                    .disabled(index > 4 ? false : true)
                 }
                 .padding(.leading)
                 .frame(width: geo.size.width/5*4)
-                .background(.opacity(0.15))
+                
                 Spacer()
                 ZStack {
                     Image("CuttingBoard")
@@ -80,6 +81,8 @@ struct ChoppingView: View {
                                 draggedOffset[1] = draggedOffset[0]
                                 accumulatedOffset[1] = accumulatedOffset[0]
                                 SoundSetting.instance.playSound(sound: "choppingSound")
+                                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                    impactHeavy.impactOccurred()
                                 
                             }
                     case 2 :
@@ -95,6 +98,8 @@ struct ChoppingView: View {
                                     draggedOffset[2] = draggedOffset[0]
                                     accumulatedOffset[2] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             
                             Image(ingredientName + "Slice5")
@@ -118,6 +123,8 @@ struct ChoppingView: View {
                                     draggedOffset[3] = draggedOffset[0]
                                     accumulatedOffset[3] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice4")
                                 .resizable()
@@ -130,6 +137,8 @@ struct ChoppingView: View {
                                     draggedOffset[3] = draggedOffset[0]
                                     accumulatedOffset[3] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice5")
                                 .resizable()
@@ -152,6 +161,8 @@ struct ChoppingView: View {
                                     draggedOffset[4] = draggedOffset[0]
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice3")
                                 .resizable()
@@ -164,6 +175,8 @@ struct ChoppingView: View {
                                     draggedOffset[4] = draggedOffset[0]
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice4")
                                 .resizable()
@@ -176,6 +189,8 @@ struct ChoppingView: View {
                                     draggedOffset[4] = draggedOffset[0]
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice5")
                                 .resizable()

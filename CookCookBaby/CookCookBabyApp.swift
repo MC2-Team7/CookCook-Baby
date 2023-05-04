@@ -13,6 +13,7 @@ struct CookCookBabyApp: App {
         WindowGroup {
             ContentView()
             //ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.tomato,.broccoli,.cabbage,.onion]))
+
         }
     }
 }
