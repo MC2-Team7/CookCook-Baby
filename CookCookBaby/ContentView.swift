@@ -14,10 +14,10 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             if showDetail {
-                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.tomato]),showDetail: self.$showDetail,index: $index
+                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index
                              ,ingredientName: $name)
             } else {
-                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.greenOnion,.onion]),showDetail: self.$showDetail, name: $name)
+                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
             }
         }
         
