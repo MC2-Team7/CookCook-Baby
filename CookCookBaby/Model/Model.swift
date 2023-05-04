@@ -12,11 +12,13 @@ class ingredient : Identifiable {
     let imageKey : String
     let soundKey : String
     let sliceImageKey : SliceImageKey?
-    init(name: String, imageKey: String, soundKey: String, sliceImageKey : SliceImageKey? = nil) {
+    let btnImageKey : String
+    init(name: String, imageKey: String, soundKey: String, sliceImageKey : SliceImageKey? = nil, btnImageKey : String) {
         self.name = name
         self.imageKey = imageKey
         self.soundKey = soundKey
         self.sliceImageKey = sliceImageKey
+        self.btnImageKey = btnImageKey
     }
 }
 extension ingredient {
@@ -38,7 +40,8 @@ extension ingredient {
     static let tomato = ingredient(
         name: "토마토",
         imageKey: "tomato",
-        soundKey: "tomatoSound"
+        soundKey: "tomatoSound",
+        btnImageKey: ""
     )
     static let scallion = ingredient(
         name: "대파",
@@ -49,12 +52,14 @@ extension ingredient {
         name: "당근",
         imageKey : "carrot3D",
         soundKey: "carrotSound",
-        sliceImageKey: SliceImageKey(key1: "carrotSlice1", key2: "carrotSlice1.1", key3: "carrotSlice2", key4: "carrotSlice3")
+        sliceImageKey: SliceImageKey(key1: "carrotSlice1", key2: "carrotSlice1.1", key3: "carrotSlice2", key4: "carrotSlice3"),
+        btnImageKey: "carrotButton"
     )
     static let fish = ingredient(
         name: "생선",
         imageKey: "fish",
-        soundKey: "fishSound"
+        soundKey: "fishSound",
+        btnImageKey: "fishButton"
     )
     static let mushroom = ingredient(
         name: "버섯",
@@ -64,16 +69,22 @@ extension ingredient {
     static let broccoli = ingredient(
         name: "브로콜리",
         imageKey: "broccoli",
-        soundKey: "broccoliSound"
+        soundKey: "broccoliSound",
+        btnImageKey: ""
     )
     static let cabbage = ingredient(
         name: "양배추",
         imageKey: "cabbage",
-        soundKey: "cabbageSound"
+        soundKey: "cabbageSound",
+        btnImageKey: ""
     )
     static let onion = ingredient(
         name: "양파",
         imageKey: "onion",
-        soundKey: "onionSound"
+        soundKey: "onionSound",
+        btnImageKey: "onionButton"
+        
     )
+    
+    static let greenOnion = ingredient(name: "대파", imageKey: "", soundKey: "",btnImageKey: "greenonionButton")
 }

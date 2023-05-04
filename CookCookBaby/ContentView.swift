@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showDetail = false
+    @State var name: String = ""
+    @State var index: Int = 1
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            if showDetail {
+                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.tomato]),showDetail: self.$showDetail,index: $index
+                             ,ingredientName: $name)
+            } else {
+                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.greenOnion,.onion]),showDetail: self.$showDetail, name: $name)
+            }
         }
-        .padding()
+        
     }
 }
 
