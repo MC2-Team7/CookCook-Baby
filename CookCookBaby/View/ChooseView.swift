@@ -9,21 +9,17 @@ import SwiftUI
 
 struct ChooseView: View {
     @ObservedObject var viewModel : ChoppingViewModel
+    @Binding var showDetail: Bool
+    @Binding var name: String
     var body: some View {
         GeometryReader{ geo in
             VStack{
                 HStack {
                     ForEach(viewModel.ingredients){ ingredient in
-                        ButtonSample(imageKey: ingredient.btnImageKey, geo: geo)
+                        ButtonSample(imageKey: ingredient.btnImageKey, geo: geo,ingredientImageKey: ingredient.imageKey, showDetail: $showDetail, name: $name)
                     }
                 }
                 .padding(40)
-                HStack {
-                    ButtonSample(imageKey: "분홍버튼",geo: geo)
-                    ButtonSample(imageKey: "민트버튼",geo: geo)
-                    ButtonSample(imageKey: "보라버튼",geo: geo)
-                    ButtonSample(imageKey: "분홍버튼",geo: geo)
-                }
             }
         }
     }
@@ -32,8 +28,13 @@ struct ChooseView: View {
 struct ButtonSample: View {
     let imageKey: String
     let geo: GeometryProxy
+    let ingredientImageKey: String
+    @Binding var showDetail: Bool
+    @Binding var name: String
     var body: some View {
         Button {
+            name = ingredientImageKey
+            showDetail = true
         } label: {
             Image(imageKey)
                 .resizable()
@@ -41,12 +42,5 @@ struct ButtonSample: View {
                 .frame(width: geo.size.width/5)
                 .padding(.horizontal, 20)
         }
-    }
-}
-
-struct ChooseView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.greenOnion,.onion]))
-            .previewInterfaceOrientation(.landscapeRight)
     }
 }
