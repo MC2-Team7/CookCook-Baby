@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ConnectedChoppingView: View {
     @ObservedObject var viewModel : ConnectedViewModel
-    @Binding var showDetail: Bool
+    @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @Binding var index : Int

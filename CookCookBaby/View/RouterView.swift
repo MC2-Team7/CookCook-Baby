@@ -9,19 +9,22 @@ import Foundation
 import SwiftUI
 
 struct RouterView : View {
-    @State var showDetail = false
+    @State var showDetail : Int = 0
     @State var name: String = ""
     @State var index: Int = 1
     var body: some View {
         ZStack {
-//            if showDetail {
-//                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index
-//                             ,ingredientName: $name)
-//            } else {
-//                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
-//            }
-            ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: []),showDetail: self.$showDetail,index: $index, ingredientName: $name)
+            switch showDetail {
+            case 0 :
+                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
+            case 1 :
+                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index ,ingredientName: $name)
+            case 2 :
+                ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: []),showDetail: self.$showDetail,index: $index, ingredientName: $name)
+            default :
+                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
+            }
+
         }
-        
     }
 }

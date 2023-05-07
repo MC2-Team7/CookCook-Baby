@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChooseView: View {
     @ObservedObject var viewModel : ChoppingViewModel
-    @Binding var showDetail: Bool
+    @Binding var showDetail: Int
     @Binding var name: String
     var body: some View {
         GeometryReader{ geo in
@@ -34,12 +34,12 @@ struct ButtonSample: View {
     let imageKey: String
     let geo: GeometryProxy
     let ingredientImageKey: String
-    @Binding var showDetail: Bool
+    @Binding var showDetail: Int
     @Binding var name: String
     var body: some View {
         Button {
             name = ingredientImageKey
-            showDetail = true
+            showDetail = 1
         } label: {
             Image(imageKey)
                 .resizable()

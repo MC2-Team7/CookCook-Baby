@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChoppingView: View {
     @ObservedObject var viewModel : ChoppingViewModel
-    @Binding var showDetail: Bool
+    @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @Binding var index : Int 
@@ -25,6 +25,10 @@ struct ChoppingView: View {
         GeometryReader { geo in
             VStack{
                 HStack {
+                    Button("아가야재료받아") {
+                        showDetail = 2
+                        index = 0
+                    }
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(viewModel.ingredients){ ingredient in
