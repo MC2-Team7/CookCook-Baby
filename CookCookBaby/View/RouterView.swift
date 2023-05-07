@@ -20,7 +20,7 @@ struct RouterView : View {
 //            } else {
 //                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
 //            }
-            ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index, ingredientName: $name)
+            ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: []),showDetail: self.$showDetail,index: $index, ingredientName: $name)
         }
         
     }
