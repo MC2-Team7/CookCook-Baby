@@ -14,6 +14,7 @@ struct ChoppingView: View {
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @Binding var index : Int 
     @Binding var ingredientName: String
+    @Binding var receiveIngredients: [ingredient]
     var ratio : CGFloat = 5/12
     
     // 부모 기기로 보내기 Alert용
@@ -28,6 +29,7 @@ struct ChoppingView: View {
                     Button("아가야재료받아") {
                         showDetail = 2
                         index = 0
+                        receiveIngredients = viewModel.receiveIngredient(ingredients: ["생선","버섯","대파"])
                     }
                     ScrollView(.horizontal) {
                         HStack{

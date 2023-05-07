@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct RouterView : View {
+    @State var receiveIngredients : [ingredient] = []
     @State var showDetail : Int = 0
     @State var name: String = ""
     @State var index: Int = 1
@@ -18,9 +19,9 @@ struct RouterView : View {
             case 0 :
                 ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
             case 1 :
-                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index ,ingredientName: $name)
+                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index ,ingredientName: $name, receiveIngredients: $receiveIngredients)
             case 2 :
-                ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: []),showDetail: self.$showDetail,index: $index, ingredientName: $name)
+                ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: receiveIngredients),showDetail: self.$showDetail,index: $index, ingredientName: $name)
             default :
                 ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
             }

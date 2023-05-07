@@ -35,7 +35,7 @@ class ConnectedViewModel : ObservableObject {
             case "양파":
                 self.ingredients.append(.onion)
             default:
-                print("잘못들어모 \(ingredient)")
+                print("잘못들어옴 \(ingredient)")
             }
         }
     }
