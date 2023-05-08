@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChoppingView: View {
+    @StateObject var central = CentralViewModel()
     @ObservedObject var viewModel : ChoppingViewModel
     @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
@@ -27,6 +28,12 @@ struct ChoppingView: View {
     var body: some View {
         GeometryReader { geo in
             VStack{
+                Text(central.message)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                            .padding(20)
+                            .onDisappear {
+                                central.stopAction()
+                            }
                 HStack {
                     Button("아가야재료받아") {
                         showDetail = 2
