@@ -1,20 +1,19 @@
 //
-//  ChoppingView.swift
+//  ConnectedChoppingView.swift
 //  CookCookBaby
 //
-//  Created by 박승찬 on 2023/04/29.
+//  Created by 박승찬 on 2023/05/07.
 //
 
 import SwiftUI
 
-struct ChoppingView: View {
-    @ObservedObject var viewModel : ChoppingViewModel
+struct ConnectedChoppingView: View {
+    @ObservedObject var viewModel : ConnectedViewModel
     @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
-    @Binding var index : Int 
+    @Binding var index : Int
     @Binding var ingredientName: String
-    @Binding var receiveIngredients: [ingredient]
     var ratio : CGFloat = 5/12
     
     // 부모 기기로 보내기 Alert용
@@ -26,10 +25,8 @@ struct ChoppingView: View {
         GeometryReader { geo in
             VStack{
                 HStack {
-                    Button("아가야재료받아") {
-                        showDetail = 2
-                        index = 0
-                        receiveIngredients = viewModel.receiveIngredient(ingredients: ["생선","버섯","대파"])
+                    Button("테스트버튼") {
+                        viewModel.receiveIngredient(ingredients: ["당근","양파"])
                     }
                     ScrollView(.horizontal) {
                         HStack{
@@ -55,6 +52,9 @@ struct ChoppingView: View {
       
                     Button("알림창") {
                         isShowAlert = true
+                        viewModel.transferIngredient(name: ingredientName)
+                        index = 0
+                        
                     }
                     .alert(isPresented: $isShowAlert, content: {
                         Alert(title: Text("부모한테 보낼 String :"),
@@ -347,9 +347,4 @@ struct ChoppingView: View {
     }
     
     
-}
-extension CGSize {
-    static func + (lhs: Self, rhs: Self) -> Self {
-        CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
-    }
 }

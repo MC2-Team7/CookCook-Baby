@@ -17,6 +17,9 @@
 		42F9E5662A023E6F008FCF26 /* scallionSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */; };
 		42F9E5682A024F6D008FCF26 /* mushroomSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */; };
 		42F9E56A2A02914F008FCF26 /* HapticSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9E5692A02914F008FCF26 /* HapticSetting.swift */; };
+		6F660F392A07D16700031567 /* ConnectedChoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F660F382A07D16700031567 /* ConnectedChoppingView.swift */; };
+		6F660F3B2A07D40D00031567 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F660F3A2A07D40D00031567 /* RouterView.swift */; };
+		6F660F3D2A07D52E00031567 /* ConnectedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F660F3C2A07D52E00031567 /* ConnectedViewModel.swift */; };
 		6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A2A29FD06E7006830A6 /* Model.swift */; };
 		6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */; };
 		6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */; };
@@ -41,6 +44,9 @@
 		42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scallionSound.mp3; sourceTree = "<group>"; };
 		42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mushroomSound.mp3; sourceTree = "<group>"; };
 		42F9E5692A02914F008FCF26 /* HapticSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticSetting.swift; sourceTree = "<group>"; };
+		6F660F382A07D16700031567 /* ConnectedChoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedChoppingView.swift; sourceTree = "<group>"; };
+		6F660F3A2A07D40D00031567 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		6F660F3C2A07D52E00031567 /* ConnectedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedViewModel.swift; sourceTree = "<group>"; };
 		6FCE0A2A29FD06E7006830A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoppingView.swift; sourceTree = "<group>"; };
 		6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoppingViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 			children = (
 				6FCE0A2D29FD087E006830A6 /* ChoppingView.swift */,
 				1AB47F952A0106300034468E /* ChooseView.swift */,
+				6F660F382A07D16700031567 /* ConnectedChoppingView.swift */,
+				6F660F3A2A07D40D00031567 /* RouterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */,
+				6F660F3C2A07D52E00031567 /* ConnectedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F660F3D2A07D52E00031567 /* ConnectedViewModel.swift in Sources */,
 				42F9E56A2A02914F008FCF26 /* HapticSetting.swift in Sources */,
 				6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */,
 				6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */,
@@ -243,6 +253,8 @@
 				4040F62829FA67E200C3B35D /* ContentView.swift in Sources */,
 				6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */,
 				4040F62629FA67E200C3B35D /* CookCookBabyApp.swift in Sources */,
+				6F660F392A07D16700031567 /* ConnectedChoppingView.swift in Sources */,
+				6F660F3B2A07D40D00031567 /* RouterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = HR74YJR7W4;
+				DEVELOPMENT_TEAM = 37UUYN2CGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -384,7 +396,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.greed.CookCookBaby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -400,7 +412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = HR74YJR7W4;
+				DEVELOPMENT_TEAM = 37UUYN2CGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -413,7 +425,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.greed.CookCookBaby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

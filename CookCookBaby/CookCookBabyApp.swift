@@ -12,8 +12,6 @@ struct CookCookBabyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            //ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.tomato,.broccoli,.cabbage,.onion]))
-
         }
     }
 }
