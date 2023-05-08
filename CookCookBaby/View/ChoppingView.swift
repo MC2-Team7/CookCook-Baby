@@ -12,10 +12,12 @@ struct ChoppingView: View {
     @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
-    @Binding var index : Int 
+    @Binding var index : Int
     @Binding var ingredientName: String
     @Binding var receiveIngredients: [ingredient]
     var ratio : CGFloat = 5/12
+    //슬라이스 위치 파악용
+    @State private var sliceOffset: CGSize = .zero
     
     // 부모 기기로 보내기 Alert용
     @State private var isShowAlert: Bool = false
@@ -52,7 +54,7 @@ struct ChoppingView: View {
                     }
                     .background(.opacity(0.15))
                     .cornerRadius(20)
-      
+                    
                     Button("알림창") {
                         isShowAlert = true
                     }
@@ -88,7 +90,7 @@ struct ChoppingView: View {
                                 accumulatedOffset[1] = accumulatedOffset[0]
                                 SoundSetting.instance.playSound(sound: "choppingSound")
                                 let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                    impactHeavy.impactOccurred()
+                                impactHeavy.impactOccurred()
                                 
                             }
                     case 2 :
@@ -105,7 +107,7 @@ struct ChoppingView: View {
                                     accumulatedOffset[2] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                        impactHeavy.impactOccurred()
+                                    impactHeavy.impactOccurred()
                                 }
                             
                             Image(ingredientName + "Slice5")
@@ -130,7 +132,7 @@ struct ChoppingView: View {
                                     accumulatedOffset[3] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                        impactHeavy.impactOccurred()
+                                    impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice4")
                                 .resizable()
@@ -144,7 +146,7 @@ struct ChoppingView: View {
                                     accumulatedOffset[3] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                        impactHeavy.impactOccurred()
+                                    impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice5")
                                 .resizable()
@@ -168,7 +170,7 @@ struct ChoppingView: View {
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                        impactHeavy.impactOccurred()
+                                    impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice3")
                                 .resizable()
@@ -182,7 +184,7 @@ struct ChoppingView: View {
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                        impactHeavy.impactOccurred()
+                                    impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice4")
                                 .resizable()
@@ -196,7 +198,7 @@ struct ChoppingView: View {
                                     accumulatedOffset[4] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                                        impactHeavy.impactOccurred()
+                                    impactHeavy.impactOccurred()
                                 }
                             Image(ingredientName + "Slice5")
                                 .resizable()
@@ -272,6 +274,78 @@ struct ChoppingView: View {
                     //
                     //}
                 }//ZStack
+                .contentShape(Rectangle())
+                .gesture(
+                    //슬라이스 제스쳐 구현 부분
+                DragGesture(minimumDistance: 200)
+                    .onChanged { self.sliceOffset = $0.translation}
+                                .onEnded {
+                                    //드래그 세로의 위치가 -200보다 작은 위치로 가면 실행
+                                    if $0.translation.height < -200 {
+                                        index += 1
+                                        self.sliceOffset = .zero
+                                        SoundSetting.instance.playSound(sound: "choppingSound")
+                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
+                                        if index == 6 {
+                                            index = 1
+                                        }
+                                        switch index {
+                                        case 1 :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        case 2 :
+                                            draggedOffset[1] = draggedOffset[0]
+                                            accumulatedOffset[1] = accumulatedOffset[0]
+                                        case 3 :
+                                            draggedOffset[2] = draggedOffset[0]
+                                            accumulatedOffset[2] = accumulatedOffset[0]
+                                        case 4 :
+                                            draggedOffset[3] = draggedOffset[0]
+                                            accumulatedOffset[3] = accumulatedOffset[0]
+                                        case 5 :
+                                            draggedOffset[4] = draggedOffset[0]
+                                            accumulatedOffset[4] = accumulatedOffset[0]
+                                        default :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        }
+                                    //드래그 세로의 위치가 200보다 커지면 실행
+                                    } else if $0.translation.height > 200 {
+                                        index += 1
+                                        self.sliceOffset = .zero
+                                        SoundSetting.instance.playSound(sound: "choppingSound")
+                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
+                                        if index == 6 {
+                                            index = 1
+                                        }
+                                        switch index {
+                                        case 1 :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        case 2 :
+                                            draggedOffset[1] = draggedOffset[0]
+                                            accumulatedOffset[1] = accumulatedOffset[0]
+                                        case 3 :
+                                            draggedOffset[2] = draggedOffset[0]
+                                            accumulatedOffset[2] = accumulatedOffset[0]
+                                        case 4 :
+                                            draggedOffset[3] = draggedOffset[0]
+                                            accumulatedOffset[3] = accumulatedOffset[0]
+                                        case 5 :
+                                            draggedOffset[4] = draggedOffset[0]
+                                            accumulatedOffset[4] = accumulatedOffset[0]
+                                        default :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        }
+                                    //아니면 원래 위치로 돌아감
+                                    } else {
+                                        self.sliceOffset = .zero
+                                    }
+                                }
+                )//gesture
                 Spacer()
             }
             .padding(.top, 2)
