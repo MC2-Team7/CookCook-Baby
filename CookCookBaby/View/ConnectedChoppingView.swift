@@ -15,6 +15,8 @@ struct ConnectedChoppingView: View {
     @Binding var index : Int
     @Binding var ingredientName: String
     var ratio : CGFloat = 5/12
+    //슬라이스 위치 파악용
+    @State private var sliceOffset: CGSize = .zero
     
     // 부모 기기로 보내기 Alert용
     @State private var isShowAlert: Bool = false
@@ -272,6 +274,78 @@ struct ConnectedChoppingView: View {
                     //
                     //}
                 }//ZStack
+                .contentShape(Rectangle())
+                .gesture(
+                    //슬라이스 제스쳐 구현 부분
+                DragGesture(minimumDistance: 200)
+                    .onChanged { self.sliceOffset = $0.translation}
+                                .onEnded {
+                                    //드래그 세로의 위치가 -200보다 작은 위치로 가면 실행
+                                    if $0.translation.height < -200 {
+                                        index += 1
+                                        self.sliceOffset = .zero
+                                        SoundSetting.instance.playSound(sound: "choppingSound")
+                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
+                                        if index == 6 {
+                                            index = 1
+                                        }
+                                        switch index {
+                                        case 1 :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        case 2 :
+                                            draggedOffset[1] = draggedOffset[0]
+                                            accumulatedOffset[1] = accumulatedOffset[0]
+                                        case 3 :
+                                            draggedOffset[2] = draggedOffset[0]
+                                            accumulatedOffset[2] = accumulatedOffset[0]
+                                        case 4 :
+                                            draggedOffset[3] = draggedOffset[0]
+                                            accumulatedOffset[3] = accumulatedOffset[0]
+                                        case 5 :
+                                            draggedOffset[4] = draggedOffset[0]
+                                            accumulatedOffset[4] = accumulatedOffset[0]
+                                        default :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        }
+                                    //드래그 세로의 위치가 200보다 커지면 실행
+                                    } else if $0.translation.height > 200 {
+                                        index += 1
+                                        self.sliceOffset = .zero
+                                        SoundSetting.instance.playSound(sound: "choppingSound")
+                                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                                        impactHeavy.impactOccurred()
+                                        if index == 6 {
+                                            index = 1
+                                        }
+                                        switch index {
+                                        case 1 :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        case 2 :
+                                            draggedOffset[1] = draggedOffset[0]
+                                            accumulatedOffset[1] = accumulatedOffset[0]
+                                        case 3 :
+                                            draggedOffset[2] = draggedOffset[0]
+                                            accumulatedOffset[2] = accumulatedOffset[0]
+                                        case 4 :
+                                            draggedOffset[3] = draggedOffset[0]
+                                            accumulatedOffset[3] = accumulatedOffset[0]
+                                        case 5 :
+                                            draggedOffset[4] = draggedOffset[0]
+                                            accumulatedOffset[4] = accumulatedOffset[0]
+                                        default :
+                                            draggedOffset[0] = draggedOffset[0]
+                                            accumulatedOffset[0] = accumulatedOffset[0]
+                                        }
+                                    //아니면 원래 위치로 돌아감
+                                    } else {
+                                        self.sliceOffset = .zero
+                                    }
+                                }
+                )//gesture
                 Spacer()
             }
             .padding(.top, 2)
