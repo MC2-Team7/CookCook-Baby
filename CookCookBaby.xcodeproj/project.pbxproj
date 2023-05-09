@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18DA57312A0929F600EE16EA /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA57302A0929F600EE16EA /* TransferService.swift */; };
+		18DA57352A092A2900EE16EA /* CentralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA57342A092A2900EE16EA /* CentralViewModel.swift */; };
+		18DA57372A092A4E00EE16EA /* PeripheralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA57362A092A4E00EE16EA /* PeripheralViewModel.swift */; };
+		18DA57392A092AE700EE16EA /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA57382A092AE700EE16EA /* CentralView.swift */; };
 		1AB47F962A0106300034468E /* ChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB47F952A0106300034468E /* ChooseView.swift */; };
 		4040F62629FA67E200C3B35D /* CookCookBabyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */; };
 		4040F62829FA67E200C3B35D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040F62729FA67E200C3B35D /* ContentView.swift */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18DA57302A0929F600EE16EA /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
+		18DA57342A092A2900EE16EA /* CentralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewModel.swift; sourceTree = "<group>"; };
+		18DA57362A092A4E00EE16EA /* PeripheralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewModel.swift; sourceTree = "<group>"; };
+		18DA57382A092AE700EE16EA /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
 		1AB47F952A0106300034468E /* ChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseView.swift; sourceTree = "<group>"; };
 		4040F62229FA67E200C3B35D /* CookCookBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookCookBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookCookBabyApp.swift; sourceTree = "<group>"; };
@@ -70,6 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18DA57322A092A0E00EE16EA /* Central */ = {
+			isa = PBXGroup;
+			children = (
+				18DA57342A092A2900EE16EA /* CentralViewModel.swift */,
+			);
+			path = Central;
+			sourceTree = "<group>";
+		};
+		18DA57332A092A1400EE16EA /* Peripheral */ = {
+			isa = PBXGroup;
+			children = (
+				18DA57362A092A4E00EE16EA /* PeripheralViewModel.swift */,
+			);
+			path = Peripheral;
+			sourceTree = "<group>";
+		};
 		4040F61929FA67E200C3B35D = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +121,6 @@
 				6FCE0A2C29FD0840006830A6 /* View */,
 				6FCE0A2F29FD0889006830A6 /* ViewModel */,
 				6FCE0A2929FD06CF006830A6 /* Model */,
-				4040F62929FA67E400C3B35D /* Assets.xcassets */,
 				4040F62B29FA67E400C3B35D /* Preview Content */,
 			);
 			path = CookCookBaby;
@@ -115,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				6FCE0A2A29FD06E7006830A6 /* Model.swift */,
+				18DA57302A0929F600EE16EA /* TransferService.swift */,
+				4040F62929FA67E400C3B35D /* Assets.xcassets */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +151,7 @@
 				1AB47F952A0106300034468E /* ChooseView.swift */,
 				6F660F382A07D16700031567 /* ConnectedChoppingView.swift */,
 				6F660F3A2A07D40D00031567 /* RouterView.swift */,
+				18DA57382A092AE700EE16EA /* CentralView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +159,8 @@
 		6FCE0A2F29FD0889006830A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				18DA57332A092A1400EE16EA /* Peripheral */,
+				18DA57322A092A0E00EE16EA /* Central */,
 				6FCE0A3029FD08A3006830A6 /* ChoppingViewModel.swift */,
 				6F660F3C2A07D52E00031567 /* ConnectedViewModel.swift */,
 			);
@@ -247,12 +275,16 @@
 				6F660F3D2A07D52E00031567 /* ConnectedViewModel.swift in Sources */,
 				42F9E56A2A02914F008FCF26 /* HapticSetting.swift in Sources */,
 				6FCE0A2E29FD087E006830A6 /* ChoppingView.swift in Sources */,
+				18DA57352A092A2900EE16EA /* CentralViewModel.swift in Sources */,
 				6FCE0A3129FD08A3006830A6 /* ChoppingViewModel.swift in Sources */,
 				1AB47F962A0106300034468E /* ChooseView.swift in Sources */,
 				6FCE0A3429FD1F57006830A6 /* SoundSetting.swift in Sources */,
+				18DA57312A0929F600EE16EA /* TransferService.swift in Sources */,
 				4040F62829FA67E200C3B35D /* ContentView.swift in Sources */,
 				6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */,
+				18DA57372A092A4E00EE16EA /* PeripheralViewModel.swift in Sources */,
 				4040F62629FA67E200C3B35D /* CookCookBabyApp.swift in Sources */,
+				18DA57392A092AE700EE16EA /* CentralView.swift in Sources */,
 				6F660F392A07D16700031567 /* ConnectedChoppingView.swift in Sources */,
 				6F660F3B2A07D40D00031567 /* RouterView.swift in Sources */,
 			);
@@ -386,11 +418,14 @@
 				DEVELOPMENT_TEAM = 37UUYN2CGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,11 +450,14 @@
 				DEVELOPMENT_TEAM = 37UUYN2CGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
