@@ -65,18 +65,15 @@ struct ChoppingView: View {
                         }
                     } label: {
                         if central.message.count > 1 {
-                            Image(systemName: "lightbulb")
+                            Image("lightOn")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geo.size.width/20)
-                                .foregroundColor(.yellow)
-                            
+                                .frame(width: geo.size.width/15)
                         } else {
-                            Image(systemName: "lightbulb")
+                            Image("lightOff")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geo.size.width/20)
-                                .foregroundColor(.gray)
+                                .frame(width: geo.size.width/15)
                         }
                     }
                     .onDisappear {

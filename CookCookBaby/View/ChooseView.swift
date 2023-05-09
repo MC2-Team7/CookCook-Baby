@@ -15,16 +15,23 @@ struct ChooseView: View {
         GeometryReader{ geo in
             VStack{
                 HStack {
-                    ForEach(0..<4,id: \.self){ num in
+                    ForEach(0..<3,id: \.self){ num in
                         ButtonSample(imageKey: viewModel.ingredients[num].btnImageKey, geo: geo,ingredientImageKey: viewModel.ingredients[num].imageKey, showDetail: $showDetail, name: $name)
                     }
                 }
                 .padding(40)
                 HStack {
-                    ForEach(4..<5,id: \.self){ num in
+                    ForEach(3..<6,id: \.self){ num in
                         ButtonSample(imageKey: viewModel.ingredients[num].btnImageKey, geo: geo,ingredientImageKey: viewModel.ingredients[num].imageKey, showDetail: $showDetail, name: $name)
                     }
                 }
+                .padding(40)
+                HStack {
+                    ForEach(6..<9,id: \.self){ num in
+                        ButtonSample(imageKey: viewModel.ingredients[num].btnImageKey, geo: geo,ingredientImageKey: viewModel.ingredients[num].imageKey, showDetail: $showDetail, name: $name)
+                    }
+                }
+                .padding(40)
             }
         }
     }

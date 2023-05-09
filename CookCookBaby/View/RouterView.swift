@@ -17,13 +17,13 @@ struct RouterView : View {
         ZStack {
             switch showDetail {
             case 0 :
-                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
+                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion,.eggplant,.meat,.paprika,.potato]),showDetail: self.$showDetail, name: $name)
             case 1 :
-                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail,index: $index ,ingredientName: $name, receiveIngredients: $receiveIngredients)
+                ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion,.eggplant,.meat,.paprika,.potato]),showDetail: self.$showDetail,index: $index ,ingredientName: $name, receiveIngredients: $receiveIngredients)
             case 2 :
                 ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: receiveIngredients),showDetail: self.$showDetail,index: $index, ingredientName: $name)
             default :
-                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion]),showDetail: self.$showDetail, name: $name)
+                ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion,.eggplant,.meat,.paprika,.potato]),showDetail: self.$showDetail, name: $name)
             }
 
         }
