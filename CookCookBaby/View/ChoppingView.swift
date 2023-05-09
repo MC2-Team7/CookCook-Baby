@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChoppingView: View {
     @StateObject var central = CentralViewModel()
+    @State private var text: String = ""
     @ObservedObject var viewModel : ChoppingViewModel
     @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
@@ -28,18 +29,9 @@ struct ChoppingView: View {
     var body: some View {
         GeometryReader { geo in
             VStack{
-                Text(central.message)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                            .padding(20)
-                            .onDisappear {
-                                central.stopAction()
-                            }
+                
                 HStack {
-                    Button("아가야재료받아") {
-                        showDetail = 2
-                        index = 0
-                        receiveIngredients = viewModel.receiveIngredient(ingredients: ["생선","버섯","대파"])
-                    }
+                    
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(viewModel.ingredients){ ingredient in
@@ -62,14 +54,36 @@ struct ChoppingView: View {
                     .background(.opacity(0.15))
                     .cornerRadius(20)
                     
-                    Button("알림창") {
-                        isShowAlert = true
+                    Button{
+                        if central.message.count > 1 {
+                            showDetail = 2
+                            index = 0
+                            var receive : [String] = central.message.components(separatedBy: " ").map{String($0)}
+                            
+                            receiveIngredients = viewModel.receiveIngredient(ingredients: receive)
+                        
+                        }
+                    } label: {
+                        if central.message.count > 1 {
+                            Image(systemName: "lightbulb")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/20)
+                                .foregroundColor(.yellow)
+                            
+                        } else {
+                            Image(systemName: "lightbulb")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/20)
+                                .foregroundColor(.gray)
+                        }
                     }
-                    .alert(isPresented: $isShowAlert, content: {
-                        Alert(title: Text("부모한테 보낼 String :"),
-                              message: Text("\(ingredientName)"))
-                    })
-                    .disabled(index > 4 ? false : true)
+                    .onDisappear {
+                        central.stopAction()
+                    }
+                    
+                    
                 }
                 .padding(.leading)
                 .frame(width: geo.size.width/5*4)
@@ -364,7 +378,10 @@ struct ChoppingView: View {
             .onChanged{ gesture in
                 
                 draggedOffset[0] = accumulatedOffset[0] + gesture.translation
-                
+                if central.message.count > 1 {
+                    showDetail = 2
+                    index = 0
+                }
                 //draggedOffset = accumulatedOffset + gesture.translation
             }
             .onEnded { gesture in

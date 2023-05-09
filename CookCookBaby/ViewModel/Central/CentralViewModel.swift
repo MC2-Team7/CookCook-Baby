@@ -228,6 +228,7 @@ extension CentralViewModel: CBPeripheralDelegate {
             message = String(data: data, encoding: .utf8) ?? ""
             writeData()
             
+            
         } else {
             data.append(characteristicData)
         }

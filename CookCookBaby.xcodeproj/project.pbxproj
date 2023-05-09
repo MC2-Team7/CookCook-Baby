@@ -415,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				DEVELOPMENT_TEAM = 37UUYN2CGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
@@ -447,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				DEVELOPMENT_TEAM = 37UUYN2CGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
