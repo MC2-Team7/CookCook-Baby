@@ -59,7 +59,6 @@ struct ChoppingView: View {
                             showDetail = 2
                             index = 0
                             var receive : [String] = central.message.components(separatedBy: " ").map{String($0)}
-                            
                             receiveIngredients = viewModel.receiveIngredient(ingredients: receive)
                         
                         }

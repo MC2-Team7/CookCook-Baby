@@ -27,6 +27,14 @@ class ChoppingViewModel : ObservableObject {
                 inputIngredients.append(.scallion)
             case "양파":
                 inputIngredients.append(.onion)
+            case "감자":
+                inputIngredients.append(.potato)
+            case "고기":
+                inputIngredients.append(.meat)
+            case "파프리카":
+                inputIngredients.append(.paprika)
+            case "가지":
+                inputIngredients.append(.eggplant)
             default:
                 print("잘못들어옴 \(ingredient)")
             }
