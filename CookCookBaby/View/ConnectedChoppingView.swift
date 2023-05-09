@@ -27,9 +27,9 @@ struct ConnectedChoppingView: View {
         GeometryReader { geo in
             VStack{
                 HStack {
-                    Button("테스트버튼") {
-                        viewModel.receiveIngredient(ingredients: ["당근","양파"])
-                    }
+//                    Button("테스트버튼") {
+//                        viewModel.receiveIngredient(ingredients: ["당근","양파"])
+//                    }
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(viewModel.ingredients){ ingredient in
@@ -52,7 +52,7 @@ struct ConnectedChoppingView: View {
                     .background(.opacity(0.15))
                     .cornerRadius(20)
       
-                    Button("알림창") {
+                    Button("엄마에게 보내기!") {
                         isShowAlert = true
                         viewModel.transferIngredient(name: ingredientName)
                         index = 0
