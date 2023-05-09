@@ -68,23 +68,34 @@ extension ingredient {
         soundKey: "mushroomSound",
         btnImageKey: "mushroomButton"
     )
-    static let broccoli = ingredient(
-        name: "브로콜리",
-        imageKey: "broccoli",
-        soundKey: "broccoliSound",
-        btnImageKey: ""
+    static let potato = ingredient(
+        name: "감자",
+        imageKey: "potato",
+        soundKey: "potatoSound",
+        btnImageKey: "potatoButton"
     )
-    static let cabbage = ingredient(
-        name: "양배추",
-        imageKey: "cabbage",
-        soundKey: "cabbageSound",
-        btnImageKey: ""
+    static let eggplant = ingredient(
+        name: "가지",
+        imageKey: "eggplant",
+        soundKey: "eggplantSound",
+        btnImageKey: "eggplantButton"
     )
     static let onion = ingredient(
         name: "양파",
         imageKey: "onion",
         soundKey: "onionSound",
         btnImageKey: "onionButton"
-        
+    )
+    static let paprika = ingredient(
+        name: "파프리카",
+        imageKey: "paprika",
+        soundKey: "paprikaSound",
+        btnImageKey: "paprikaButton"
+    )
+    static let meat = ingredient(
+        name: "고기",
+        imageKey: "meat",
+        soundKey: "meatSound",
+        btnImageKey: "meatButton"
     )
 }

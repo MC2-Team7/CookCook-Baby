@@ -59,24 +59,20 @@ struct ChoppingView: View {
                             showDetail = 2
                             index = 0
                             var receive : [String] = central.message.components(separatedBy: " ").map{String($0)}
-                            
                             receiveIngredients = viewModel.receiveIngredient(ingredients: receive)
                         
                         }
                     } label: {
                         if central.message.count > 1 {
-                            Image(systemName: "lightbulb")
+                            Image("lightOn")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geo.size.width/20)
-                                .foregroundColor(.yellow)
-                            
+                                .frame(width: geo.size.width/15)
                         } else {
-                            Image(systemName: "lightbulb")
+                            Image("lightOff")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geo.size.width/20)
-                                .foregroundColor(.gray)
+                                .frame(width: geo.size.width/15)
                         }
                     }
                     .onDisappear {

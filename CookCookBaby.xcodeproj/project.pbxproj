@@ -17,6 +17,10 @@
 		4040F62A29FA67E400C3B35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4040F62929FA67E400C3B35D /* Assets.xcassets */; };
 		4040F62D29FA67E400C3B35D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4040F62C29FA67E400C3B35D /* Preview Assets.xcassets */; };
 		4040F63429FA6B7900C3B35D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4040F63329FA6B7900C3B35D /* .gitignore */; };
+		426AEA3C2A0A479D0045D3DE /* meatSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 426AEA382A0A479C0045D3DE /* meatSound.mp3 */; };
+		426AEA3D2A0A479D0045D3DE /* eggplantSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 426AEA392A0A479D0045D3DE /* eggplantSound.mp3 */; };
+		426AEA3E2A0A479D0045D3DE /* paprikaSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 426AEA3A2A0A479D0045D3DE /* paprikaSound.mp3 */; };
+		426AEA3F2A0A479D0045D3DE /* potatoSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 426AEA3B2A0A479D0045D3DE /* potatoSound.mp3 */; };
 		42F9E5482A012DC8008FCF26 /* choppingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */; };
 		42F9E5662A023E6F008FCF26 /* scallionSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */; };
 		42F9E5682A024F6D008FCF26 /* mushroomSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */; };
@@ -48,6 +52,10 @@
 		4040F62929FA67E400C3B35D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4040F62C29FA67E400C3B35D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4040F63329FA6B7900C3B35D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		426AEA382A0A479C0045D3DE /* meatSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meatSound.mp3; sourceTree = "<group>"; };
+		426AEA392A0A479D0045D3DE /* eggplantSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eggplantSound.mp3; sourceTree = "<group>"; };
+		426AEA3A2A0A479D0045D3DE /* paprikaSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = paprikaSound.mp3; sourceTree = "<group>"; };
+		426AEA3B2A0A479D0045D3DE /* potatoSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = potatoSound.mp3; sourceTree = "<group>"; };
 		42F9E5472A012DC8008FCF26 /* choppingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = choppingSound.mp3; sourceTree = "<group>"; };
 		42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scallionSound.mp3; sourceTree = "<group>"; };
 		42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mushroomSound.mp3; sourceTree = "<group>"; };
@@ -184,6 +192,10 @@
 				6FCE0A3A29FD20A0006830A6 /* carrotSound.mp3 */,
 				6FCE0A3629FD209F006830A6 /* fishSound.mp3 */,
 				6FCE0A3929FD209F006830A6 /* onionSound.mp3 */,
+				426AEA392A0A479D0045D3DE /* eggplantSound.mp3 */,
+				426AEA382A0A479C0045D3DE /* meatSound.mp3 */,
+				426AEA3A2A0A479D0045D3DE /* paprikaSound.mp3 */,
+				426AEA3B2A0A479D0045D3DE /* potatoSound.mp3 */,
 				42F9E5652A023E6F008FCF26 /* scallionSound.mp3 */,
 				6FCE0A3B29FD20A0006830A6 /* tomatoSound.mp3 */,
 				42F9E5672A024F6D008FCF26 /* mushroomSound.mp3 */,
@@ -252,6 +264,7 @@
 			files = (
 				4040F62D29FA67E400C3B35D /* Preview Assets.xcassets in Resources */,
 				6FCE0A4029FD20A0006830A6 /* carrotSound.mp3 in Resources */,
+				426AEA3D2A0A479D0045D3DE /* eggplantSound.mp3 in Resources */,
 				4040F63429FA6B7900C3B35D /* .gitignore in Resources */,
 				6FCE0A3E29FD20A0006830A6 /* cabbageSound.mp3 in Resources */,
 				6FCE0A3C29FD20A0006830A6 /* fishSound.mp3 in Resources */,
@@ -261,7 +274,10 @@
 				4040F62A29FA67E400C3B35D /* Assets.xcassets in Resources */,
 				42F9E5662A023E6F008FCF26 /* scallionSound.mp3 in Resources */,
 				6FCE0A4129FD20A0006830A6 /* tomatoSound.mp3 in Resources */,
+				426AEA3C2A0A479D0045D3DE /* meatSound.mp3 in Resources */,
+				426AEA3F2A0A479D0045D3DE /* potatoSound.mp3 in Resources */,
 				6FCE0A3D29FD20A0006830A6 /* broccoliSound.mp3 in Resources */,
+				426AEA3E2A0A479D0045D3DE /* paprikaSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

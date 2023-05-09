@@ -131,7 +131,7 @@ extension CentralViewModel: CBCentralManagerDelegate {
     // 신호가 가장 강한 기기 찾기
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-        guard RSSI.intValue >= -50 else {
+        guard RSSI.intValue >= -100 else {
             return
         }
         
