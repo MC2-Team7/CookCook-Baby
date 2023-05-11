@@ -43,68 +43,64 @@ struct ChoppingView: View {
         GeometryReader { geo in
             VStack{
                 
-//                HStack {
-//
-//                    ScrollView(.horizontal) {
-//                        HStack{
-//                            ForEach(viewModel.ingredients){ ingredient in
-//                                Image(ingredient.imageKey)
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width: geo.size.width/10)
-//                                    .onTapGesture {
-//                                        index = 1
-//                                        ingredientName = ingredient.imageKey
-//                                        SoundSetting.instance.playSound(sound: ingredient.soundKey)
-//                                        for i in 0...4 {
-//                                            draggedOffset[i] = CGSize.zero
-//                                            accumulatedOffset[i] = CGSize.zero
-//                                        }
-//                                    }
-//                            }
-//                        }
-//                    }
-//                    .background(.opacity(0.15))
-//                    .cornerRadius(20)
-//
-//                    Button{
-//                        if rawIngredients.count > 0 {
-//                            showDetail = 2
-//                            index = 0
-////                            var receive : [String] = central.message.components(separatedBy: " ").map{String($0)}
-////                            receiveIngredients = viewModel.receiveIngredient(ingredients: receive)
-//
-//                        }
-//                    } label: {
-//                        if rawIngredients.count > 0 {
-//                            Image("lightOn")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: geo.size.width/15)
-//                        } else {
-//                            Image("lightOff")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: geo.size.width/15)
-//                        }
-//                    }
-//                    ForEach(rawIngredients){ item in
-//                        Text(item.ingredients!)
-//                    }
-//                    .onDisappear {
-//                        central.stopAction()
-//                    }
-//
-//
-//                }
-//                .padding(.leading)
-//                .frame(width: geo.size.width/5*4)
-                List{
-                    ForEach(rawIngredients) { item in
-                        Text(item.ingredients!)
+                HStack {
+
+                    ScrollView(.horizontal) {
+                        HStack{
+                            ForEach(viewModel.ingredients){ ingredient in
+                                Image(ingredient.imageKey)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width/10)
+                                    .onTapGesture {
+                                        index = 1
+                                        ingredientName = ingredient.imageKey
+                                        SoundSetting.instance.playSound(sound: ingredient.soundKey)
+                                        for i in 0...4 {
+                                            draggedOffset[i] = CGSize.zero
+                                            accumulatedOffset[i] = CGSize.zero
+                                        }
+                                    }
+                            }
+                        }
                     }
+                    .background(.opacity(0.15))
+                    .cornerRadius(20)
+
+                    Button{
+                        if rawIngredients.count > 0 {
+                            showDetail = 2
+                            index = 0
+                            var receive : [String] = []
+                            for item in rawIngredients{
+                                for ingredient in item.ingredients!.components(separatedBy: " ").map({String($0)}){
+                                    receive.append(ingredient)
+                                }
+                                
+                            }
+                            receiveIngredients = viewModel.receiveIngredient(ingredients: receive)
+                            deleteRawIngredients()
+                        }
+                    } label: {
+                        if rawIngredients.count > 0 {
+                            Image("lightOn")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                        } else {
+                            Image("lightOff")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                        }
+                    }
+                    
+                    
+
+
                 }
-                .background(.orange)
+                .padding(.leading)
+                .frame(width: geo.size.width/5*4)
                 
                 Spacer()
                 ZStack {
@@ -464,6 +460,22 @@ struct ChoppingView: View {
             }
     }
     
+    private func deleteRawIngredients() {
+        withAnimation {
+            rawIngredients.forEach(viewContext.delete)
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
+
     
 }
 extension CGSize {
