@@ -26,6 +26,8 @@ struct RouterView : View {
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             case 2 :
                 ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: receiveIngredients),showDetail: self.$showDetail,index: $index, ingredientName: $name)
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+
             default :
                 ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion,.eggplant,.meat,.paprika,.potato]),showDetail: self.$showDetail, name: $name)
             }
