@@ -13,6 +13,9 @@ struct RouterView : View {
     @State var showDetail : Int = 0
     @State var name: String = ""
     @State var index: Int = 1
+    
+    let persistenceController = PersistenceController.shared
+
     var body: some View {
         ZStack {
             switch showDetail {
@@ -20,6 +23,7 @@ struct RouterView : View {
                 ChooseView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion,.eggplant,.meat,.paprika,.potato]),showDetail: self.$showDetail, name: $name)
             case 1 :
                 ChoppingView(viewModel: ChoppingViewModel(ingredients: [.carrot,.fish,.mushroom,.scallion,.onion,.eggplant,.meat,.paprika,.potato]),showDetail: self.$showDetail,index: $index ,ingredientName: $name, receiveIngredients: $receiveIngredients)
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
             case 2 :
                 ConnectedChoppingView(viewModel: ConnectedViewModel(ingredients: receiveIngredients),showDetail: self.$showDetail,index: $index, ingredientName: $name)
             default :
