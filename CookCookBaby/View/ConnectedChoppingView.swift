@@ -70,6 +70,9 @@ struct ConnectedChoppingView: View {
                         viewModel.transferIngredient(name: ingredientName)
                         index = 0
                         addChoppedIngredient(ingredient: ingredientName)
+                        if viewModel.ingredients.isEmpty {
+                            showDetail = 1
+                        }
                     }
                     .alert(isPresented: $isShowAlert, content: {
                         Alert(title: Text("부모한테 보낼 String :"),
