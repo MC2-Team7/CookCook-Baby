@@ -75,7 +75,7 @@ struct ChoppingView: View {
                     Spacer()
                     
                     Divider()
-                        .tint(Color.black)
+                        .overlay(Color.black)
                         .frame(height: geo.size.height/10)
                     
                     

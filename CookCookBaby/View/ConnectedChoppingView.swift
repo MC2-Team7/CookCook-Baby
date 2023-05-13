@@ -72,7 +72,7 @@ struct ConnectedChoppingView: View {
                     Spacer()
                     
                     Divider()
-                        .tint(Color.black)
+                    .overlay(Color.black)
                     .frame(height: geo.size.height/10)
                     
                     
@@ -89,11 +89,21 @@ struct ConnectedChoppingView: View {
                         }
 
                     } label: {
-                        Image("send")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width/15)
-                            .shadow(radius: 4)
+                        if index>4{
+                            Image("send")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                                .shadow(radius: 4)
+                        }
+                        else {
+                            Image("send")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                                .opacity(0.3)
+                                .shadow(radius: 4)
+                        }
                     }
 //                    .alert(isPresented: $isShowAlert, content: {
 //                        Alert(title: Text("부모한테 보낼 String :"),
