@@ -450,6 +450,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CookCookBaby/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChopChopKids;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -463,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBab;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.container;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -487,6 +488,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CookCookBaby/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChopChopKids;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -500,7 +502,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBab;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.container;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
