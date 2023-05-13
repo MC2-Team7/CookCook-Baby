@@ -95,13 +95,14 @@ struct ConnectedChoppingView: View {
                             .frame(width: geo.size.width/15)
                             .shadow(radius: 4)
                     }
-                    .alert(isPresented: $isShowAlert, content: {
-                        Alert(title: Text("부모한테 보낼 String :"),
-                              message: Text("\(ingredientName)"))
-                    })
+//                    .alert(isPresented: $isShowAlert, content: {
+//                        Alert(title: Text("부모한테 보낼 String :"),
+//                              message: Text("\(ingredientName)"))
+//                    })
                     .disabled(index > 4 ? false : true)
                 }
-                .padding(.leading)
+                .padding(.leading, 40)
+                .padding(.trailing, 70)
                 .frame(width: geo.size.width/5*4)
                 
                 Spacer()
