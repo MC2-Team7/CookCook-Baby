@@ -450,6 +450,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CookCookBaby/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChopChopKids;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -487,6 +488,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CookCookBaby/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChopChopKids;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
