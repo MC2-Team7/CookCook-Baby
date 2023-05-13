@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RouterView : View {
     @State var receiveIngredients : [ingredient] = []
-    @State var showDetail : Int = 0
+    @State var showDetail : Int = 1
     @State var name: String = ""
     @State var index: Int = 1
     
