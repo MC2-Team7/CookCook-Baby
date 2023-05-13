@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct ConnectedChoppingView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \RawIngredients.timestamp, ascending: true)],
+        animation: .default)
+    private var rawIngredients: FetchedResults<RawIngredients>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChoppedIngredient.timestamp, ascending: true)],
+        animation: .default)
+    private var choppedIngredients: FetchedResults<ChoppedIngredient>
+
     @ObservedObject var viewModel : ConnectedViewModel
     @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
@@ -70,6 +83,11 @@ struct ConnectedChoppingView: View {
                         isShowAlert = true
                         viewModel.transferIngredient(name: ingredientName)
                         index = 0
+                        addChoppedIngredient(ingredient: ingredientName)
+                        if viewModel.ingredients.isEmpty {
+                            showDetail = 1
+                        }
+
                     } label: {
                         Image("send")
                             .resizable()
@@ -439,5 +457,20 @@ struct ConnectedChoppingView: View {
             }
     }
     
-    
+    private func addChoppedIngredient(ingredient: String) {
+        withAnimation {
+            let newItem = ChoppedIngredient(context: viewContext)
+            newItem.timestamp = Date()
+            newItem.ingredient = ingredient
+            
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
 }

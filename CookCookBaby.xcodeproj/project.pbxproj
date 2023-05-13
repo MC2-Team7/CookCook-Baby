@@ -12,6 +12,8 @@
 		18DA57372A092A4E00EE16EA /* PeripheralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA57362A092A4E00EE16EA /* PeripheralViewModel.swift */; };
 		18DA57392A092AE700EE16EA /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA57382A092AE700EE16EA /* CentralView.swift */; };
 		1AB47F962A0106300034468E /* ChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB47F952A0106300034468E /* ChooseView.swift */; };
+		4018B36A2A0CC03E00B01F2A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018B3692A0CC03E00B01F2A /* PersistenceController.swift */; };
+		4018B36D2A0CC05600B01F2A /* CookCookBaby.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4018B36B2A0CC05600B01F2A /* CookCookBaby.xcdatamodeld */; };
 		4040F62629FA67E200C3B35D /* CookCookBabyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */; };
 		4040F62829FA67E200C3B35D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040F62729FA67E200C3B35D /* ContentView.swift */; };
 		4040F62A29FA67E400C3B35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4040F62929FA67E400C3B35D /* Assets.xcassets */; };
@@ -46,6 +48,10 @@
 		18DA57362A092A4E00EE16EA /* PeripheralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewModel.swift; sourceTree = "<group>"; };
 		18DA57382A092AE700EE16EA /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
 		1AB47F952A0106300034468E /* ChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseView.swift; sourceTree = "<group>"; };
+		4018B3692A0CC03E00B01F2A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		4018B36C2A0CC05600B01F2A /* CookCookBaby.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookCookBaby.xcdatamodel; sourceTree = "<group>"; };
+		4018B36E2A0CC36700B01F2A /* CookCookBaby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CookCookBaby.entitlements; sourceTree = "<group>"; };
+		4018B36F2A0CC36B00B01F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4040F62229FA67E200C3B35D /* CookCookBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookCookBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookCookBabyApp.swift; sourceTree = "<group>"; };
 		4040F62729FA67E200C3B35D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 		4040F62429FA67E200C3B35D /* CookCookBaby */ = {
 			isa = PBXGroup;
 			children = (
+				4018B36F2A0CC36B00B01F2A /* Info.plist */,
+				4018B36E2A0CC36700B01F2A /* CookCookBaby.entitlements */,
+				4018B36B2A0CC05600B01F2A /* CookCookBaby.xcdatamodeld */,
 				4040F62529FA67E200C3B35D /* CookCookBabyApp.swift */,
 				4040F62729FA67E200C3B35D /* ContentView.swift */,
 				6FCE0A4229FD20AA006830A6 /* Resources */,
@@ -178,6 +187,7 @@
 		6FCE0A3229FD1F3F006830A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4018B3692A0CC03E00B01F2A /* PersistenceController.swift */,
 				42F9E5692A02914F008FCF26 /* HapticSetting.swift */,
 				6FCE0A3329FD1F57006830A6 /* SoundSetting.swift */,
 			);
@@ -299,10 +309,12 @@
 				4040F62829FA67E200C3B35D /* ContentView.swift in Sources */,
 				6FCE0A2B29FD06E7006830A6 /* Model.swift in Sources */,
 				18DA57372A092A4E00EE16EA /* PeripheralViewModel.swift in Sources */,
+				4018B36D2A0CC05600B01F2A /* CookCookBaby.xcdatamodeld in Sources */,
 				4040F62629FA67E200C3B35D /* CookCookBabyApp.swift in Sources */,
 				18DA57392A092AE700EE16EA /* CentralView.swift in Sources */,
 				6F660F392A07D16700031567 /* ConnectedChoppingView.swift in Sources */,
 				6F660F3B2A07D40D00031567 /* RouterView.swift in Sources */,
+				4018B36A2A0CC03E00B01F2A /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -413,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -428,12 +440,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CookCookBaby/CookCookBaby.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = 37UUYN2CGZ;
+				DEVELOPMENT_TEAM = M8JXU75248;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CookCookBaby/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -447,8 +462,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBaby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,12 +476,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CookCookBaby/CookCookBaby.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookCookBaby/Preview Content\"";
-				DEVELOPMENT_TEAM = 37UUYN2CGZ;
+				DEVELOPMENT_TEAM = M8JXU75248;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CookCookBaby/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "\"CookCook Baby\" uses bluetooth.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -479,8 +498,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBaby;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ung.CookCookBab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,6 +529,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4018B36B2A0CC05600B01F2A /* CookCookBaby.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4018B36C2A0CC05600B01F2A /* CookCookBaby.xcdatamodel */,
+			);
+			currentVersion = 4018B36C2A0CC05600B01F2A /* CookCookBaby.xcdatamodel */;
+			path = CookCookBaby.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4040F61A29FA67E200C3B35D /* Project object */;
 }

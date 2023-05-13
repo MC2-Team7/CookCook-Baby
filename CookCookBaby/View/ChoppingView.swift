@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct ChoppingView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \RawIngredients.timestamp, ascending: true)],
+        animation: .default)
+    private var rawIngredients: FetchedResults<RawIngredients>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChoppedIngredient.timestamp, ascending: true)],
+        animation: .default)
+    private var choppedIngredients: FetchedResults<ChoppedIngredient>
+
     @StateObject var central = CentralViewModel()
     @State private var text: String = ""
     @ObservedObject var viewModel : ChoppingViewModel
@@ -33,7 +46,7 @@ struct ChoppingView: View {
             VStack{
                 
                 HStack {
-                    
+
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(viewModel.ingredients){ ingredient in
@@ -58,27 +71,35 @@ struct ChoppingView: View {
                         .padding(10)
                     }
                     .frame(width: geo.size.width/9*7)
-//                    .background(.opacity(0.15))
-//                    .cornerRadius(20)
+
                     Spacer()
                     
                     Divider()
                         .tint(Color.black)
-                    .frame(height: geo.size.height/10)
+                        .frame(height: geo.size.height/10)
                     
                     
                     Spacer()
                     
+
                     Button{
-                        if central.message.count > 1 {
+                        if rawIngredients.count > 0 {
                             showDetail = 2
                             index = 0
-                            var receive : [String] = central.message.components(separatedBy: " ").map{String($0)}
+                            var receive : [String] = []
+                            for item in rawIngredients{
+                                for ingredient in item.ingredients!.components(separatedBy: " ").map({String($0)}){
+                                    receive.append(ingredient)
+                                }
+                                
+                            }
                             receiveIngredients = viewModel.receiveIngredient(ingredients: receive)
-                            
+
+                            deleteRawIngredients()
+
                         }
                     } label: {
-                        if central.message.count > 1 {
+                        if rawIngredients.count > 0 {
                             Image("lightOn")
                                 .resizable()
                                 .scaledToFit()
@@ -98,9 +119,6 @@ struct ChoppingView: View {
                                 .shadow(radius: 6)
                                 .disabled(true)
                         }
-                    }
-                    .onDisappear {
-                        central.stopAction()
                     }
                 }
                 .padding(.leading, 40)
@@ -387,6 +405,8 @@ struct ChoppingView: View {
         }
         
     }
+    
+
     var drag : some Gesture {
         DragGesture(coordinateSpace: .named("CuttingBoard"))
             .onChanged{ gesture in
@@ -459,6 +479,22 @@ struct ChoppingView: View {
             }
     }
     
+    private func deleteRawIngredients() {
+        withAnimation {
+            rawIngredients.forEach(viewContext.delete)
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
+
     
 }
 extension CGSize {
