@@ -39,6 +39,8 @@ struct ChoppingView: View {
     
     @State var ringBell = false
     
+    @State var dragFrame: CGRect = .zero
+    
     var soundSetting = SoundSetting()
     
     var body: some View {
@@ -104,7 +106,7 @@ struct ChoppingView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width/15)
-                                .shadow(radius: 4)
+                                .shadow(radius: 6)
                                 .rotationEffect(.degrees(ringBell ? -20 : 20), anchor: .center)
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 50, initialVelocity: 0)
                                     .repeatForever(autoreverses: true))
@@ -126,9 +128,7 @@ struct ChoppingView: View {
                 .frame(width: geo.size.width)
                 
                 Spacer()
-//                GeometryReader { limit in
-                    //                let rect = CGRect(x: .size.width, y: limit.size.height,
-                    //                                  width: limit.size.width, height: limit.size.height)
+                GeometryReader { zgeo in
                     ZStack {
                         Image("CuttingBoard")
                             .resizable()
@@ -139,9 +139,6 @@ struct ChoppingView: View {
                         switch index {
                         case 1 :
                             Image(ingredientName)
-                            //.resizable()
-                            //.scaledToFit()
-                            //.frame(width: geo.size.width * 2/3)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: geo.size.height*ratio)
@@ -150,6 +147,8 @@ struct ChoppingView: View {
                                 .onTapGesture {
                                     index = 2
                                     
+                                    dragFrame = zgeo.frame(in: .named("CuttingBoard"))
+                                        
                                     draggedOffset[1] = draggedOffset[0]
                                     accumulatedOffset[1] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
@@ -324,8 +323,8 @@ struct ChoppingView: View {
                         default:
                             Image("")
                         }
-                    }
-                    .padding(.all, 10.0)//ZStack
+                    }//ZStack
+                    .padding(.all, 10.0)
                     .contentShape(Rectangle())
                     .gesture(
                         //슬라이스 제스쳐 구현 부분
@@ -398,7 +397,7 @@ struct ChoppingView: View {
                                 }
                             }
                     )//gesture
-//                }//geometry
+                }//geometry
                 Spacer()
             }
             .padding(.top, 5)

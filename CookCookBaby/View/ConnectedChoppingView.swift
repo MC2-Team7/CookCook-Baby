@@ -34,6 +34,8 @@ struct ConnectedChoppingView: View {
     // 부모 기기로 보내기 Alert용
     @State private var isShowAlert: Bool = false
     
+    @State var ringBell = false
+    
     var soundSetting = SoundSetting()
     
     var body: some View {
@@ -94,7 +96,13 @@ struct ConnectedChoppingView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width/15)
-                                .shadow(radius: 4)
+                                .shadow(radius: 6)
+                                .rotationEffect(.degrees(ringBell ? -20 : 20), anchor: .center)
+                                .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 50, initialVelocity: 0)
+                                    .repeatForever(autoreverses: true))
+                                .onAppear(){
+                                    ringBell.toggle()
+                                }
                         }
                         else {
                             Image("send")
@@ -102,7 +110,7 @@ struct ConnectedChoppingView: View {
                                 .scaledToFit()
                                 .frame(width: geo.size.width/15)
                                 .opacity(0.3)
-                                .shadow(radius: 4)
+                                .shadow(radius: 6)
                         }
                     }
 //                    .alert(isPresented: $isShowAlert, content: {
@@ -113,7 +121,7 @@ struct ConnectedChoppingView: View {
                 }
                 .padding(.leading, 40)
                 .padding(.trailing, 70)
-                .frame(width: geo.size.width/5*4)
+                .frame(width: geo.size.width)
                 
                 Spacer()
                 ZStack {
