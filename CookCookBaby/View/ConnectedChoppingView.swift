@@ -8,6 +8,19 @@
 import SwiftUI
 
 struct ConnectedChoppingView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \RawIngredients.timestamp, ascending: true)],
+        animation: .default)
+    private var rawIngredients: FetchedResults<RawIngredients>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \ChoppedIngredient.timestamp, ascending: true)],
+        animation: .default)
+    private var choppedIngredients: FetchedResults<ChoppedIngredient>
+
     @ObservedObject var viewModel : ConnectedViewModel
     @Binding var showDetail: Int
     @State private var draggedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
@@ -33,10 +46,11 @@ struct ConnectedChoppingView: View {
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(viewModel.ingredients){ ingredient in
-                                Image(ingredient.imageKey)
+                                Image(ingredient.imageBar)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: geo.size.width/10)
+                                    .frame(width: geo.size.width/12)
+                                    .shadow(radius: 4)
                                     .onTapGesture {
                                         index = 1
                                         ingredientName = ingredient.imageKey
@@ -46,25 +60,59 @@ struct ConnectedChoppingView: View {
                                             accumulatedOffset[i] = CGSize.zero
                                         }
                                     }
+                                Spacer().frame(width: 25)
                             }
+
                         }
+                        .padding(10)
                     }
-                    .background(.opacity(0.15))
-                    .cornerRadius(20)
+                    .frame(width: geo.size.width/9*7)
+//                    .background(.opacity(0.15))
+//                    .cornerRadius(20)
+                    Spacer()
+                    
+                    Divider()
+                    .overlay(Color.black)
+                    .frame(height: geo.size.height/10)
+                    
+                    
+                    Spacer()
+                    
       
-                    Button("엄마에게 보내기!") {
+                    Button {
                         isShowAlert = true
                         viewModel.transferIngredient(name: ingredientName)
                         index = 0
-                        
+                        addChoppedIngredient(ingredient: ingredientName)
+                        if viewModel.ingredients.isEmpty {
+                            showDetail = 1
+                        }
+
+                    } label: {
+                        if index>4{
+                            Image("send")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                                .shadow(radius: 4)
+                        }
+                        else {
+                            Image("send")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                                .opacity(0.3)
+                                .shadow(radius: 4)
+                        }
                     }
-                    .alert(isPresented: $isShowAlert, content: {
-                        Alert(title: Text("부모한테 보낼 String :"),
-                              message: Text("\(ingredientName)"))
-                    })
+//                    .alert(isPresented: $isShowAlert, content: {
+//                        Alert(title: Text("부모한테 보낼 String :"),
+//                              message: Text("\(ingredientName)"))
+//                    })
                     .disabled(index > 4 ? false : true)
                 }
-                .padding(.leading)
+                .padding(.leading, 40)
+                .padding(.trailing, 70)
                 .frame(width: geo.size.width/5*4)
                 
                 Spacer()
@@ -420,5 +468,20 @@ struct ConnectedChoppingView: View {
             }
     }
     
-    
+    private func addChoppedIngredient(ingredient: String) {
+        withAnimation {
+            let newItem = ChoppedIngredient(context: viewContext)
+            newItem.timestamp = Date()
+            newItem.ingredient = ingredient
+            
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
 }
