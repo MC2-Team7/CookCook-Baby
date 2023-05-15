@@ -91,7 +91,7 @@ struct ConnectedChoppingView: View {
                         }
 
                     } label: {
-                        if index>4{
+                        if index>3{
                             Image("send")
                                 .resizable()
                                 .scaledToFit()
@@ -117,7 +117,7 @@ struct ConnectedChoppingView: View {
 //                        Alert(title: Text("부모한테 보낼 String :"),
 //                              message: Text("\(ingredientName)"))
 //                    })
-                    .disabled(index > 4 ? false : true)
+                    .disabled(index > 3 ? false : true)
                 }
                 .padding(.leading, 40)
                 .padding(.trailing, 70)
