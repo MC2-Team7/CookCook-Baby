@@ -34,10 +34,17 @@ class ConnectedViewModel : ObservableObject {
                 self.ingredients.append(.scallion)
             case "양파":
                 self.ingredients.append(.onion)
+            case "감자":
+                self.ingredients.append(.potato)
+            case "고기":
+                self.ingredients.append(.meat)
+            case "파프리카":
+                self.ingredients.append(.paprika)
+            case "가지":
+                self.ingredients.append(.eggplant)
             default:
                 print("잘못들어옴 \(ingredient)")
             }
         }
     }
-    
 }
