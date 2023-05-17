@@ -35,9 +35,6 @@ struct ConnectedChoppingView: View {
     // 부모 기기로 보내기 Alert용
     @State private var isShowAlert: Bool = false
     @State var ringBell = false
-
-    
-    @State var ringBell = false
     
     var soundSetting = SoundSetting()
     
