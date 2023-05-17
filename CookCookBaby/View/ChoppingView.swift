@@ -50,21 +50,32 @@ struct ChoppingView: View {
                     ScrollView(.horizontal) {
                         HStack{
                             ForEach(viewModel.ingredients){ ingredient in
-                                Image(ingredient.imageBar)
+                                if ingredient.imageBar == "carrotBar" {
+                                    Image(ingredient.imageBar)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: geo.size.width/12)
                                     .shadow(radius: 4)
                                     .onTapGesture {
-                                        index = 1
-                                        ingredientName = ingredient.imageKey
-                                        SoundSetting.instance.playSound(sound: ingredient.soundKey)
-                                        for i in 0...4 {
-                                            draggedOffset[i] = CGSize.zero
-                                            accumulatedOffset[i] = CGSize.zero
-                                        }
+                                    index = 1
+                                    ingredientName = ingredient.imageKey
+                                    SoundSetting.instance.playSound(sound: ingredient.soundKey)
+                                    for i in 0...4 {
+                                        draggedOffset[i] = CGSize.zero
+                                        accumulatedOffset[i] = CGSize.zero
                                     }
+                                }//onTapGesture
                                 Spacer().frame(width: 25)
+                                } else {
+                                    Image(ingredient.imageBar)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width/12)
+                                    .shadow(radius: 4)
+                                    .opacity(0.2)
+                                    .disabled(true)
+                                Spacer().frame(width: 25)
+                                }
                             }
 
                         }
@@ -104,7 +115,7 @@ struct ChoppingView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width/15)
-                                .shadow(radius: 4)
+                                .shadow(radius: 6)
                                 .rotationEffect(.degrees(ringBell ? -20 : 20), anchor: .center)
                                 .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 50, initialVelocity: 0)
                                     .repeatForever(autoreverses: true))
@@ -126,9 +137,7 @@ struct ChoppingView: View {
                 .frame(width: geo.size.width)
                 
                 Spacer()
-//                GeometryReader { limit in
-                    //                let rect = CGRect(x: .size.width, y: limit.size.height,
-                    //                                  width: limit.size.width, height: limit.size.height)
+                GeometryReader { zgeo in
                     ZStack {
                         Image("CuttingBoard")
                             .resizable()
@@ -139,9 +148,6 @@ struct ChoppingView: View {
                         switch index {
                         case 1 :
                             Image(ingredientName)
-                            //.resizable()
-                            //.scaledToFit()
-                            //.frame(width: geo.size.width * 2/3)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: geo.size.height*ratio)
@@ -149,7 +155,7 @@ struct ChoppingView: View {
                                 .gesture(drag)
                                 .onTapGesture {
                                     index = 2
-                                    
+                                        
                                     draggedOffset[1] = draggedOffset[0]
                                     accumulatedOffset[1] = accumulatedOffset[0]
                                     SoundSetting.instance.playSound(sound: "choppingSound")
@@ -324,8 +330,8 @@ struct ChoppingView: View {
                         default:
                             Image("")
                         }
-                    }
-                    .padding(.all, 10.0)//ZStack
+                    }//ZStack
+                    .padding(.all, 10.0)
                     .contentShape(Rectangle())
                     .gesture(
                         //슬라이스 제스쳐 구현 부분
@@ -398,7 +404,7 @@ struct ChoppingView: View {
                                 }
                             }
                     )//gesture
-//                }//geometry
+                }//geometry
                 Spacer()
             }
             .padding(.top, 5)
