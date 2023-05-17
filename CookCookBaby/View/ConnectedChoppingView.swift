@@ -27,12 +27,15 @@ struct ConnectedChoppingView: View {
     @State private var accumulatedOffset = [CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero,CGSize.zero]
     @Binding var index : Int
     @Binding var ingredientName: String
+    
     var ratio : CGFloat = 5/12
     //슬라이스 위치 파악용
     @State private var sliceOffset: CGSize = .zero
     
     // 부모 기기로 보내기 Alert용
     @State private var isShowAlert: Bool = false
+    @State var ringBell = false
+
     
     var soundSetting = SoundSetting()
     
@@ -75,6 +78,39 @@ struct ConnectedChoppingView: View {
                     .overlay(Color.black)
                     .frame(height: geo.size.height/10)
                     
+                    Button{
+                        if rawIngredients.count > 0 {
+//                            showDetail = 2
+//                            index = 0
+//                            var receive : [String] = []
+                            for item in rawIngredients{
+                                viewModel.receiveIngredient(ingredients: item.ingredients!.components(separatedBy: " ").map({String($0)}))
+                            }
+                            deleteRawIngredients()
+                        }
+                    } label: {
+                        if rawIngredients.count > 0 {
+                            Image("lightOn")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                                .shadow(radius: 4)
+                                .rotationEffect(.degrees(ringBell ? -20 : 20), anchor: .center)
+                                .animation(Animation.interpolatingSpring(mass: 0.1, stiffness: 100, damping: 50, initialVelocity: 0)
+                                    .repeatForever(autoreverses: true))
+                                .onAppear(){
+                                    ringBell.toggle()
+                                }
+                        } else {
+                            Image("lightOff")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width/15)
+                                .shadow(radius: 6)
+                                .disabled(true)
+                        }
+                    }
+
                     
                     Spacer()
                     
@@ -133,6 +169,15 @@ struct ConnectedChoppingView: View {
                             .offset(draggedOffset[0])
                             .gesture(drag)
                             .onTapGesture {
+                                if rawIngredients.count > 0 {
+        //                            showDetail = 2
+        //                            index = 0
+        //                            var receive : [String] = []
+                                    for item in rawIngredients{
+                                        viewModel.receiveIngredient(ingredients: item.ingredients!.components(separatedBy: " ").map({String($0)}))
+                                    }
+                                    deleteRawIngredients()
+                                }
                                 index = 2
                                 draggedOffset[1] = draggedOffset[0]
                                 accumulatedOffset[1] = accumulatedOffset[0]
@@ -328,6 +373,15 @@ struct ConnectedChoppingView: View {
                 DragGesture(minimumDistance: 200)
                     .onChanged { self.sliceOffset = $0.translation}
                                 .onEnded {
+                                    if rawIngredients.count > 0 {
+            //                            showDetail = 2
+            //                            index = 0
+            //                            var receive : [String] = []
+                                        for item in rawIngredients{
+                                            viewModel.receiveIngredient(ingredients: item.ingredients!.components(separatedBy: " ").map({String($0)}))
+                                        }
+                                        deleteRawIngredients()
+                                    }
                                     //드래그 세로의 위치가 -200보다 작은 위치로 가면 실행
                                     if $0.translation.height < -200 {
                                         index += 1
@@ -474,6 +528,20 @@ struct ConnectedChoppingView: View {
             newItem.timestamp = Date()
             newItem.ingredient = ingredient
             
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    private func deleteRawIngredients() {
+        withAnimation {
+            rawIngredients.forEach(viewContext.delete)
+
             do {
                 try viewContext.save()
             } catch {
