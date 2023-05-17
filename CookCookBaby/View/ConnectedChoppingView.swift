@@ -35,9 +35,6 @@ struct ConnectedChoppingView: View {
     // 부모 기기로 보내기 Alert용
     @State private var isShowAlert: Bool = false
     @State var ringBell = false
-
-    
-    @State var ringBell = false
     
     var soundSetting = SoundSetting()
     
@@ -71,7 +68,7 @@ struct ConnectedChoppingView: View {
                         }
                         .padding(10)
                     }
-                    .frame(width: geo.size.width/9*7)
+                    .frame(width: geo.size.width/18*13)
 //                    .background(.opacity(0.15))
 //                    .cornerRadius(20)
                     Spacer()
@@ -79,7 +76,7 @@ struct ConnectedChoppingView: View {
                     Divider()
                     .overlay(Color.black)
                     .frame(height: geo.size.height/10)
-                    
+                    Spacer()
                     Button{
                         if rawIngredients.count > 0 {
 //                            showDetail = 2
@@ -114,7 +111,7 @@ struct ConnectedChoppingView: View {
                     }
 
                     
-                    Spacer()
+                    Spacer().frame(width: 25)
                     
       
                     Button {
@@ -156,7 +153,7 @@ struct ConnectedChoppingView: View {
                     .disabled(index > 3 ? false : true)
                 }
                 .padding(.leading, 40)
-                .padding(.trailing, 70)
+                .padding(.trailing, 40)
                 .frame(width: geo.size.width)
                 
                 Spacer()
