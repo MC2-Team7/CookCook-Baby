@@ -68,7 +68,7 @@ struct ConnectedChoppingView: View {
                         }
                         .padding(10)
                     }
-                    .frame(width: geo.size.width/9*7)
+                    .frame(width: geo.size.width/18*13)
 //                    .background(.opacity(0.15))
 //                    .cornerRadius(20)
                     Spacer()
@@ -76,7 +76,7 @@ struct ConnectedChoppingView: View {
                     Divider()
                     .overlay(Color.black)
                     .frame(height: geo.size.height/10)
-                    
+                    Spacer()
                     Button{
                         if rawIngredients.count > 0 {
 //                            showDetail = 2
@@ -111,7 +111,7 @@ struct ConnectedChoppingView: View {
                     }
 
                     
-                    Spacer()
+                    Spacer().frame(width: 25)
                     
       
                     Button {
@@ -153,7 +153,7 @@ struct ConnectedChoppingView: View {
                     .disabled(index > 3 ? false : true)
                 }
                 .padding(.leading, 40)
-                .padding(.trailing, 70)
+                .padding(.trailing, 40)
                 .frame(width: geo.size.width)
                 
                 Spacer()
